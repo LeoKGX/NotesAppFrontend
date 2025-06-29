@@ -1,0 +1,53 @@
+<div id="login-div">
+  <h1>Log In</h1>
+  <form [formGroup]="form" class="login-form" (ngSubmit)="onSend($event)" >
+    <div class="form-group mb-3">
+      <label for="Username">Username</label>
+      <input
+      type="username"
+      class="form-control"
+      id="Username"
+      formControlName="username"
+      [ngClass]="{'is-invalid': Username?.errors && Username?.touched, 'is-valid' : !Username?.errors && Username?.touched}"
+      >
+      <div *ngIf="Username?.errors && Username?.touched">
+        <p *ngIf="Username?.hasError('required')" class="text-danger">
+          The username is required
+        </p>
+        <p *ngIf="Username?.hasError('username')" class="text-danger">
+          Enter a valid username
+        </p>
+      </div>
+    </div>
+    <div class="form-group mb-3">
+      <label for="Password">Password</label>
+      <input
+      type="password"
+      class="form-control"
+      id="Password"
+      formControlName="password"
+      [ngClass]="{'is-invalid': Password?.errors && Password?.touched, 'is-valid' : !Password?.errors && Password?.touched}"
+      >
+      <div *ngIf="Password?.errors && Password?.touched">
+        <p *ngIf="Password?.hasError('required')" class="text-danger">
+          The password is required
+        </p>
+        <p *ngIf="Password?.hasError('minlength')" class="text-danger">
+          The password must have 8 or more characters
+        </p>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Log In</button>
+  </form>
+  <p>Not registered? 
+    <a routerLink="/register">Register</a>
+  </p>
+  <div *ngIf="error">
+    <p class="text-danger">Seems like the user or the password are incorrect, try again!</p>
+  </div>
+</div>
+
+
+
+
+

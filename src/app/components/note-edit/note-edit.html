@@ -1,0 +1,19 @@
+<div class="modal" (click)="onBackdropClick($event)">
+  <div class="modal-content" tabindex="0" (keydown.escape)="onCancel()">
+    <h3>Edit Note</h3>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <input formControlName="title" placeholder="Title" />
+      <textarea formControlName="content" placeholder="Content"></textarea>
+      <input formControlName="tags" placeholder="Tags separated by comma" />
+
+      <div class="actions">
+        <button type="submit">Save</button>
+        <button type="button" class="cancel" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+

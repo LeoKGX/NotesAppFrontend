@@ -1,0 +1,18 @@
+<div class="new-note-card" *ngIf="!creating" (click)="startCreating()">
+  <div class="plus">+</div>
+</div>
+
+
+
+<div class="new-note-form" *ngIf="creating">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <input type="text" formControlName="title" placeholder="Título" />
+    <textarea formControlName="content" placeholder="Contenido"></textarea>
+    <input type="text" formControlName="tags" placeholder="Tags (separados por coma)" />
+
+    <div class="actions">
+      <button type="submit">Guardar</button>
+      <button type="button" class="cancel" (click)="cancel()">Cancelar</button>
+    </div>
+  </form>
+</div>

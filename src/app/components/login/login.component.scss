@@ -1,0 +1,123 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: #f0f4f8;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.login-card {
+  background-color: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 380px;
+  border: 1px solid #e2e8f0;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+
+label {
+  font-weight: 500;
+  color: #1e3a8a;
+  margin-bottom: 0.4rem;
+}
+
+input.form-control {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  background-color: #f9fafb;
+}
+
+input.form-control:focus {
+  border-color: #2563eb;
+  outline: none;
+  background-color: white;
+}
+
+button {
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: white;
+  background-color: #2563eb;
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1e3a8a;
+}
+
+.text-danger {
+  font-size: 0.85rem;
+  color: #dc2626;
+  margin-top: 0.25rem;
+}
+
+p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #475569;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+:host {
+  display: flex;
+  justify-content: center; /* centro horizontal */
+  align-items: center;     /* centro vertical */
+  height: 100vh;           /* altura total de la ventana */
+  padding: 20px;           /* algo de padding para móviles */
+
+  form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #004080;
+    }
+  }
+}

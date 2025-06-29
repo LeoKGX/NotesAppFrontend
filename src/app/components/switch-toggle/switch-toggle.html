@@ -1,0 +1,7 @@
+<div class="archive-toggle">
+  <label class="switch">
+    <input type="checkbox" [checked]="checked" (change)="toggle()" />
+    <span class="slider"></span>
+  </label>
+  <span>{{ checked ? 'Archived' : 'Actives' }}</span>
+</div>

@@ -1,0 +1,9 @@
+<div class="tag-filter">
+  <button
+    *ngFor="let tag of tags"
+    [class.selected]="isSelected(tag.id)"
+    (click)="toggleTag(tag.id)"
+    >
+    {{ tag.name }}
+  </button>
+</div>

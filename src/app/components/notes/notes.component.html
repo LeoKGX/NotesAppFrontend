@@ -1,0 +1,46 @@
+<div>
+  <h2>My notes</h2>
+
+<div *ngIf="successMessage" [ngClass]="{
+  'message-success': messageType === 'success',
+  'message-info': messageType === 'info',
+  'message-error': messageType === 'error'
+}" class="feedback-message">
+  {{ successMessage }}
+</div>
+  <app-note-edit
+    *ngIf="noteToEdit"
+    [note]="noteToEdit"
+    (update)="onNoteUpdate($event)"
+    (cancel)="noteToEdit = null">
+  </app-note-edit>
+
+  <app-switch-toggle
+    [checked]="showArchived"
+    labelOn="Archivadas"
+    labelOff="Activas"
+    (toggled)="toggleArchived()"
+  ></app-switch-toggle>
+  <app-note-filter
+    [tags]="allTags"
+    (filterChanged)="onFilterChanged($event)">
+  </app-note-filter>
+
+  <div class="notes-grid">
+    <app-new-note (noteCreated)="crearNota($event)"></app-new-note>
+
+    <app-note
+      *ngFor="let note of filteredNotes"
+      [note]="note"
+      (edit)="onNoteEdit($event)"
+      (delete)="onNoteDelete($event)"
+      (archiveToggled)="onNoteUpdate($event)">
+    </app-note>
+  </div>
+
+  <ng-template #noNotes>
+    <p>There are no notes to show.</p>
+  </ng-template>
+
+  <app-logout></app-logout>
+</div>

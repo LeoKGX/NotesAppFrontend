@@ -1,0 +1,22 @@
+<div class="note-card">
+  <h3 class="note-title">{{ note.title }}</h3>
+  <p class="note-content">
+    {{ note.content }}
+  </p>
+
+  <div class="note-tags">
+    <span class="tag" *ngFor="let tag of note.tags">{{ tag.name }}</span>
+  </div>
+
+  <div class="note-actions">
+    <button class="icon-button" (click)="edit.emit(note)">
+      <i class="bi bi-pencil-fill"></i>
+    </button>
+    <button class="icon-button" (click)="delete.emit(note.id)">
+      <i class="bi bi-trash-fill"></i>
+    </button>
+    <button class="icon-button archive" (click)="toggleArchive()">
+      <i class="bi" [ngClass]="note.archived ? 'bi-box-arrow-in-up' : 'bi-box-arrow-down'"></i>
+    </button>
+  </div>
+</div>
