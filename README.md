@@ -36,7 +36,7 @@ Pruebas locales
 ### 🔹 Clonar el repositorio
 
 ```bash
-git clone https://github.com/LeoKGX/NotesAppFrontend
+git clone https://github.com/LeoKGX/NotesAppFrontend 
 cd NotesAppFrontend
 npm install
 ng serve
@@ -49,19 +49,10 @@ ng serve
 ng build --configuration production
 firebase deploy
 ```
-URL de producción: https://notesapp-ensolvers.web.app
+URL de producción: https://notesapplk.web.app/register
 
 ----
 
-Estructura del projecto
+## Puedes utilizar el run.sh (debes renombrar las carpetas a "frontend" y "backend" respectivamente o cambiar el nombre en el run.sh)
 
-.
-├── backend/
-│   ├── src/main/java/com/notesapp
-│   ├── src/main/resources
-│   └── pom.xml
-├── frontend/
-    ├── src/app/components
-    ├── src/app/services
-    ├── angular.json
-    └── package.json
+
