@@ -1,6 +1,6 @@
 # NotesApp
 
-Una aplicación web de notas desarrollada como ejercicio técnico para Ensolvers. Permite crear, editar, eliminar, archivar y filtrar notas por etiquetas. Cuenta con autenticación JWT y arquitectura full stack con separación por capas.
+Una aplicación web de notas desarrollada en 3 dias como ejercicio técnico para una evaluacion. Permite crear, editar, eliminar, archivar y filtrar notas por etiquetas. Cuenta con autenticación JWT y arquitectura full stack con separación por capas.
 
 ## Tecnologías Utilizadas
 

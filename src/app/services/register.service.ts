@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +39,16 @@ export class registerService {
 
   userlogedin() : boolean{
       return (this.usuarioAutenticado && this.usuarioAutenticado.accessToken)
+  }
+
+
+  getHealth(): Observable<any> {
+    return this.http.get("https://notesappbackend-0h5w.onrender.com/notes/health").pipe(
+      tap(data => console.log(" Backend awake:", data)),
+      catchError(err => {
+        console.warn(" Backend aún no responde:", err);
+        return of(null); // Evita que falle la app si no responde
+      })
+    );
   }
 }

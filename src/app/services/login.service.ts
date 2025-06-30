@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { map, Observable, BehaviorSubject, throwError, catchError } from "rxjs";
+import { map, Observable, BehaviorSubject, throwError, catchError, tap, of } from "rxjs";
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -14,6 +14,7 @@ export class loginService {
 
   constructor(private http: HttpClient, private ruta: Router) {
     console.log("el auth serv esta corriendo");
+    
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('currentUser') || '{}'));
     if ( this.usuarioAutenticado){this.ruta.navigate(['/notes']);}
   }
@@ -41,4 +42,16 @@ export class loginService {
   userlogedin() : boolean{
       return (this.usuarioAutenticado && this.usuarioAutenticado.accessToken)
   }
+
+
+  getHealth(): Observable<any> {
+    return this.http.get("https://notesappbackend-0h5w.onrender.com/notes/health").pipe(
+      tap(data => console.log(" Backend awake:", data)),
+      catchError(err => {
+        console.error(" Error en getHealth:", err);
+        return of(null); // Evita que falle la app si no responde
+      })
+    );
+  }
+
 }

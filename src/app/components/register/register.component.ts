@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
@@ -15,7 +15,7 @@ import { registerService } from '../../services/register.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
   form: FormGroup;
 
   constructor(
@@ -47,5 +47,10 @@ export class RegisterComponent {
     const password = formGroup.get('password')?.value;
     const confirm = formGroup.get('confirmPassword')?.value;
     return password === confirm ? null : { passwordsMismatch: true };
+  }
+
+
+  ngOnInit(): void {
+    this.registerService.getHealth().subscribe();
   }
 }

@@ -28,6 +28,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.error = this.loginservice.error;
+
+    this.loginservice.getHealth().subscribe();
   }
   get Username() { return this.form.get('username'); }
   get Password() { return this.form.get('password'); }
